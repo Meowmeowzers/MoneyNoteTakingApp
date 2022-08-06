@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
         <item
             android:id="@+id/mainFragment"
             android:enabled="true"
@@ -13,9 +13,14 @@
             android:title="@string/list"
             android:icon="@drawable/ic_dashboard_black_24dp"/>
         <item
+            android:id="@+id/note2"
+            android:enabled="true"
+            android:title="@string/list2"
+            android:icon="@drawable/ic_baseline_menu_24"/>
+        <item
             android:id="@+id/other"
             android:enabled="true"
             android:title="@string/other"
-            android:icon="@drawable/ic_baseline_menu_24"/>
+            android:icon="@drawable/ic_baseline_developer_board_24"/>
 
 </menu>

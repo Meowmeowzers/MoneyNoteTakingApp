@@ -18,7 +18,7 @@ class MainFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).supportActionBar?.title = "Quiz"
+        (activity as AppCompatActivity).supportActionBar?.title = "Money Note"
 
 //        val shareViewModel: ShareViewModel by activityViewModels()
 //        val application = requireNotNull(this.activity).application
