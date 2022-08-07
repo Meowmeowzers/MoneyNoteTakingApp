@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.test.moneynote.database.MainDatabase
 import com.test.moneynote.databinding.FragmentMainBinding
 
 class MainFragment: Fragment() {
@@ -21,18 +23,20 @@ class MainFragment: Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Money Note"
 
 //        val shareViewModel: ShareViewModel by activityViewModels()
-//        val application = requireNotNull(this.activity).application
-//        val dataSource = QuizDatabase.getInstance(application).quizSetDatabaseDao
-//        val viewModelFactory = TakeQuizViewModelFactory(dataSource, application, shareViewModel.id)
-//        val viewModel =
-//            ViewModelProvider(this, viewModelFactory)[TakeQuizViewModel::class.java]
-//        binding.lifecycleOwner = viewLifecycleOwner
-//        binding.viewModel = viewModel
+        val application = requireNotNull(this.activity).application
+        val dataSource = MainDatabase.getInstance(application).databaseDao
+        val viewModelFactory = ListViewModelFactory(dataSource, application)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewmodel = viewModel
 
-//        val adapter = TakeQuizAdapter(TakeQuizListener { id: Problems2, num: Int ->
+        val adapter = MainRecyclerAdapter(MainRecyclerListener {
+//                id: Problems2, num: Int ->
 //            viewModel.onChoiceClick(id, num)
-//        })
+        })
 
+        binding.mainRecycler.adapter = adapter
         return binding.root
     }
 

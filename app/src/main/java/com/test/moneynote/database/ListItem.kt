@@ -13,5 +13,8 @@ data class ListItem (
     var value: Long = 0L,
 
     @ColumnInfo(name = "list_item_description")
-    var description: String = ""
+    var description: String = "",
+
+    @ColumnInfo(name = "list_item_date")
+    var date: String = "",
 )
